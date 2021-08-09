@@ -1,17 +1,17 @@
 {
-    "name": "vendor_slug/package_slug",
-    "description": ":package_description",
+    "name": "oguzcandemircan/laravel-cart",
+    "description": "This is my package LaravelCart",
     "keywords": [
-        ":vendor_name",
+        "oguzcandemircan",
         "laravel",
-        "package_slug"
+        "laravel-cart"
     ],
-    "homepage": "https://github.com/vendor_slug/package_slug",
+    "homepage": "https://github.com/oguzcandemircan/laravel-cart",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Oğuzcan Demircan",
+            "email": "oguzcandemircan@gmail.com",
             "role": "Developer"
         }
     ],
@@ -30,13 +30,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "OguzcanDemircan\\LaravelCart\\": "src",
+            "OguzcanDemircan\\LaravelCart\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "OguzcanDemircan\\LaravelCart\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -50,10 +50,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "OguzcanDemircan\\LaravelCart\\LaravelCartServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\SkeletonFacade"
+                "LaravelCart": "OguzcanDemircan\\LaravelCart\\LaravelCartFacade"
             }
         }
     },
