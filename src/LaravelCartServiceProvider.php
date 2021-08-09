@@ -2,9 +2,9 @@
 
 namespace OguzcanDemircan\LaravelCart;
 
+use OguzcanDemircan\LaravelCart\Commands\LaravelCartCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use OguzcanDemircan\LaravelCart\Commands\LaravelCartCommand;
 
 class LaravelCartServiceProvider extends PackageServiceProvider
 {
