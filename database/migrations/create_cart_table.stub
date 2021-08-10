@@ -8,11 +8,12 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('laravel-cart_table', function (Blueprint $table) {
+        Schema::create('carts', function (Blueprint $table) {
             $table->id();
-
-            // add fields
-
+            $table->morphs('buyable');
+            $table->integer('quantity');
+            $table->decimal('price');
+            $table->json('options');
             $table->timestamps();
         });
     }
