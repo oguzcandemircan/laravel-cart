@@ -2,8 +2,8 @@
 
 namespace OguzcanDemircan\LaravelCart;
 
-use InvalidArgumentException;
 use Illuminate\Database\Eloquent\Model;
+use InvalidArgumentException;
 
 class LaravelCartItem
 {
@@ -21,7 +21,7 @@ class LaravelCartItem
             $this->model = (new $model())->find($id);
         }
         if (is_object($model)) {
-            $this->model =  $model;
+            $this->model = $model;
         }
 
         throw new InvalidArgumentException("Error Processing Request", 1);
@@ -30,12 +30,14 @@ class LaravelCartItem
     public function price(float $price): self
     {
         $this->price = $price;
+
         return $this;
     }
 
     public function quantity(int $quantity): self
     {
         $this->quantity = $quantity;
+
         return $this;
     }
 

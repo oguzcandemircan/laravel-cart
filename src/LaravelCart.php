@@ -11,7 +11,8 @@ class LaravelCart
 
     public function item()
     {
-        $this->item = new LaravelCartItem;
+        $this->item = new LaravelCartItem();
+
         return $this;
     }
 
