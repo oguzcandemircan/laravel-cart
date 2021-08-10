@@ -13,6 +13,8 @@ class Cart extends Model
         'options' => 'array',
     ];
 
+    protected $guarded = [];
+
     public function buyable()
     {
         return $this->morphTo();
