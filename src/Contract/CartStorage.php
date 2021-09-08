@@ -45,7 +45,6 @@ interface CartStorage
      */
     public function remove($id);
 
-
     /**
      * Clears all the cart details including cart items.
      *

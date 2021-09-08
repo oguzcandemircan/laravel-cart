@@ -6,7 +6,6 @@ class ExampleTest extends TestCase
 {
     public function test_it_can_add_item_on_cart()
     {
-
         $this->actingAs($this->user);
         $quantity = 2;
         $options = ['size' => 'large', 'color' => 'red'];
@@ -23,10 +22,11 @@ class ExampleTest extends TestCase
             "user_id" => $this->user->id,
             "price" => 100.0,
             "quantity" => $quantity,
-            "options" =>  $options,
+            "options" => $options,
             "cartable_id" => $cart->cartable->id,
             "cartable_type" => get_class($cart->cartable),
         ]);
+
         return $cart;
     }
 

@@ -2,7 +2,6 @@
 
 namespace OguzcanDemircan\LaravelCart;
 
-use Illuminate\Support\Facades\Auth;
 use OguzcanDemircan\LaravelCart\Commands\LaravelCartCommand;
 use OguzcanDemircan\LaravelCart\Contract\CartStorage;
 use Spatie\LaravelPackageTools\Package;
@@ -31,7 +30,8 @@ class LaravelCartServiceProvider extends PackageServiceProvider
         $this->app->bind(CartStorage::class, function () {
             $model = $this->app['config']['cart']['model'];
             $driver = $this->app['config']['cart']['driver'];
-            return (new $driver)
+
+            return (new $driver())
                 ->setCartModel(new $model())
                 ->setId(1);
         });

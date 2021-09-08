@@ -3,17 +3,15 @@
 namespace OguzcanDemircan\LaravelCart\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use OguzcanDemircan\LaravelCart\LaravelCartServiceProvider;
-use Orchestra\Testbench\TestCase as Orchestra;
-
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Artisan;
+
 use OguzcanDemircan\LaravelCart\LaravelCart;
+use OguzcanDemircan\LaravelCart\LaravelCartServiceProvider;
 use OguzcanDemircan\LaravelCart\Models\Cart;
 use OguzcanDemircan\LaravelCart\Tests\Models\TestProduct;
 use OguzcanDemircan\LaravelCart\Tests\Models\TestUser;
-
-use Spatie\LaravelPackageTools\Package;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
@@ -34,7 +32,7 @@ class TestCase extends Orchestra
 
         $this->user = TestUser::first();
         $this->product = TestProduct::first();
-        $this->cart = new Cart;
+        $this->cart = new Cart();
 
         $this->laravelCart = app(LaravelCart::class);
     }
@@ -80,7 +78,7 @@ class TestCase extends Orchestra
             $table->timestamps();
         });
 
-        (new \CreateLaravelCartTable)->up();
+        (new \CreateLaravelCartTable())->up();
 
         Artisan::call('migrate');
         TestUser::create([

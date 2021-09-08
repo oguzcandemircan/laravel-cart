@@ -23,24 +23,28 @@ class LaravelCart
             $this->model = $model;
         }
         $this->driver->setModel($model);
+
         return $this;
     }
 
     public function price($price)
     {
         $this->item->price($price);
+
         return $this;
     }
 
     public function quantity($quantity)
     {
         $this->item->quantity($quantity);
+
         return $this;
     }
 
     public function options($options)
     {
         $this->item->options($options);
+
         return $this;
     }
 

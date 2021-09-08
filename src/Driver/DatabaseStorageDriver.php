@@ -11,12 +11,14 @@ class DatabaseStorageDriver implements CartStorage
     public function setModel($model)
     {
         $this->model = $model;
+
         return $this;
     }
 
     public function setCartModel($cartModel)
     {
         $this->cartModel = $cartModel;
+
         return $this;
     }
 
@@ -29,7 +31,6 @@ class DatabaseStorageDriver implements CartStorage
     {
         return $this->getQuery()->get();
     }
-
 
     public function store($data)
     {
@@ -46,6 +47,7 @@ class DatabaseStorageDriver implements CartStorage
     public function add($item)
     {
         $data = array_merge($item->toArray(), $this->getMorphData());
+
         return $this->cartModel->create($data);
     }
 
@@ -72,7 +74,6 @@ class DatabaseStorageDriver implements CartStorage
     public function countWithQuantity()
     {
         $items = $this->items()->map(function ($value) {
-
             dd($value);
         });
     }
@@ -86,9 +87,10 @@ class DatabaseStorageDriver implements CartStorage
         ];
     }
 
-    public function setId(int|string $id)
+    public function setId(int | string $id)
     {
         $this->id = $id;
+
         return $this;
     }
 

@@ -2,7 +2,6 @@
 
 namespace OguzcanDemircan\LaravelCart;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
 
@@ -15,7 +14,6 @@ class LaravelCartItem implements Arrayable, Jsonable
     protected $options;
 
     protected $user;
-
 
     public function __construct()
     {
@@ -41,6 +39,7 @@ class LaravelCartItem implements Arrayable, Jsonable
     public function options(array $options): self
     {
         $this->options = $options;
+
         return $this;
     }
 

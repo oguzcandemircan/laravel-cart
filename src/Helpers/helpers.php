@@ -2,7 +2,7 @@
 
 use OguzcanDemircan\LaravelCart\LaravelCart;
 
-if (!function_exists('cart')) {
+if (! function_exists('cart')) {
     /**
      * Return instance of the Cart class.
      */
