@@ -3,28 +3,25 @@
 namespace OguzcanDemircan\LaravelCart;
 
 use Illuminate\Database\Eloquent\Model;
-use InvalidArgumentException;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Contracts\Support\Jsonable;
 
-class LaravelCartItem
+class LaravelCartItem implements Arrayable, Jsonable
 {
+    protected $price;
+
+    protected $quantity;
+
+    protected $options;
+
+    protected $user;
+
+
     public function __construct()
     {
-        $this->model = null;
         $this->price = 0;
         $this->quantity = 0;
         $this->options = [];
-    }
-
-    public function model($model, $id)
-    {
-        if (is_string($model)) {
-            $this->model = (new $model())->find($id);
-        }
-        if (is_object($model)) {
-            $this->model = $model;
-        }
-
-        throw new InvalidArgumentException("Error Processing Request", 1);
     }
 
     public function price(float $price): self
@@ -38,6 +35,12 @@ class LaravelCartItem
     {
         $this->quantity = $quantity;
 
+        return $this;
+    }
+
+    public function options(array $options): self
+    {
+        $this->options = $options;
         return $this;
     }
 
@@ -56,22 +59,18 @@ class LaravelCartItem
         return $this->options;
     }
 
-    public function getModel(): Model
-    {
-        return $this->model;
-    }
-
-    public function getAttributes()
+    public function toArray($id = null): array
     {
         return [
+            'user_id' => $id,
             'price' => $this->getPrice(),
             'quantity' => $this->getQuantity(),
             'options' => $this->getOptions(),
         ];
     }
 
-    public function save()
+    public function toJson($options = 0)
     {
-        return $this->getModel()->cartItems()->create($this->item->getAttributes());
+        return  json_encode($this->toArray(), $options);
     }
 }

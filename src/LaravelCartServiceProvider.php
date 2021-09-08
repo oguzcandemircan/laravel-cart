@@ -2,7 +2,9 @@
 
 namespace OguzcanDemircan\LaravelCart;
 
+use Illuminate\Support\Facades\Auth;
 use OguzcanDemircan\LaravelCart\Commands\LaravelCartCommand;
+use OguzcanDemircan\LaravelCart\Contract\CartStorage;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -21,5 +23,21 @@ class LaravelCartServiceProvider extends PackageServiceProvider
             ->hasViews()
             ->hasMigration('create_laravel-cart_table')
             ->hasCommand(LaravelCartCommand::class);
+    }
+
+    public function register()
+    {
+        parent::register();
+        $this->app->bind(CartStorage::class, function () {
+            $model = $this->app['config']['cart']['model'];
+            $driver = $this->app['config']['cart']['driver'];
+            return (new $driver)
+                ->setCartModel(new $model())
+                ->setId(1);
+        });
+
+        $this->app->bind(LaravelCart::class, function ($app) {
+            return new LaravelCart($app->make(CartStorage::class));
+        });
     }
 }

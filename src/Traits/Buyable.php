@@ -4,7 +4,7 @@ namespace OguzcanDemircan\LaravelCart\Traits;
 
 use OguzcanDemircan\LaravelCart\Models\Cart;
 
-class Buyable
+trait Buyable
 {
     public function cartItems()
     {
