@@ -1,60 +1,44 @@
 {
-    "name": "oguzcandemircan/laravel-cart",
-    "description": "This is my package LaravelCart",
-    "keywords": [
-        "oguzcandemircan",
-        "laravel",
-        "laravel-cart"
-    ],
-    "homepage": "https://github.com/oguzcandemircan/laravel-cart",
+    "name": "freshbitsweb/laravel-cart-manager",
+    "description": "Managing the cart of your Laravel application is a breeze",
+    "require": {
+        "php": "^7.3|^7.4|^8.0",
+        "ext-intl": "*",
+        "illuminate/support": "5.5.*|5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.3.9",
+        "orchestra/testbench": "^6.15.1",
+        "laravel/legacy-factories": "^1.0.4"
+    },
     "license": "MIT",
     "authors": [
         {
-            "name": "Oğuzcan Demircan",
-            "email": "oguzcandemircan@gmail.com",
-            "role": "Developer"
+            "name": "Gaurav Makhecha",
+            "email": "info@freshbits.in"
         }
     ],
-    "require": {
-        "php": "^8.0",
-        "spatie/laravel-package-tools": "^1.4.3",
-        "illuminate/contracts": "^8.37"
-    },
-    "require-dev": {
-        "brianium/paratest": "^6.2",
-        "nunomaduro/collision": "^5.3",
-        "orchestra/testbench": "^6.15",
-        "phpunit/phpunit": "^9.3",
-        "spatie/laravel-ray": "^1.23",
-        "vimeo/psalm": "^4.8"
-    },
     "autoload": {
         "psr-4": {
-            "OguzcanDemircan\\LaravelCart\\": "src",
-            "OguzcanDemircan\\LaravelCart\\Database\\Factories\\": "database/factories"
-        }
+            "Freshbitsweb\\LaravelCartManager\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
-            "OguzcanDemircan\\LaravelCart\\Tests\\": "tests"
+            "Freshbitsweb\\LaravelCartManager\\Test\\": "tests"
         }
     },
     "scripts": {
-        "psalm": "vendor/bin/psalm",
-        "test": "./vendor/bin/testbench package:test --parallel --no-coverage",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-    },
-    "config": {
-        "sort-packages": true
+        "test": "vendor/bin/phpunit"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "OguzcanDemircan\\LaravelCart\\LaravelCartServiceProvider"
-            ],
-            "aliases": {
-                "LaravelCart": "OguzcanDemircan\\LaravelCart\\LaravelCartFacade"
-            }
+                "Freshbitsweb\\LaravelCartManager\\CartManagerServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",

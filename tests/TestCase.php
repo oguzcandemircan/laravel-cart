@@ -1,50 +1,47 @@
 <?php
 
-namespace OguzcanDemircan\LaravelCart\Tests;
+namespace Freshbitsweb\LaravelCartManager\Test;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Artisan;
-
-use OguzcanDemircan\LaravelCart\LaravelCart;
-use OguzcanDemircan\LaravelCart\LaravelCartServiceProvider;
-use OguzcanDemircan\LaravelCart\Models\Cart;
-use OguzcanDemircan\LaravelCart\Tests\Models\TestProduct;
-use OguzcanDemircan\LaravelCart\Tests\Models\TestUser;
+use Freshbitsweb\LaravelCartManager\Test\Support\TestProduct;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase as Orchestra;
 
-class TestCase extends Orchestra
+abstract class TestCase extends Orchestra
 {
-    public $user;
+    use RefreshDatabase;
 
-    public function setUp(): void
+    /**
+     * Setup the test environment.
+     */
+    protected function setUp(): void
     {
         parent::setUp();
 
-        // $this->refreshApplication();
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/Support/database/migrations');
+        $this->withFactories(__DIR__.'/Support/database/factories');
 
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'OguzcanDemircan\\LaravelCart\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
-        );
-
-        // Note: this also flushes the cache from within the migration
-        $this->setUpDatabase($this->app);
-
-        $this->user = TestUser::first();
-        $this->product = TestProduct::first();
-        $this->cart = new Cart();
-
-        $this->laravelCart = app(LaravelCart::class);
+        // As tests are not http requests and do not read cookies
+        cart()->setUser(1);
     }
 
+    /**
+     * @param \Illuminate\Foundation\Application $app
+     *
+     * @return array
+     */
     protected function getPackageProviders($app)
     {
-        return [
-            LaravelCartServiceProvider::class,
-        ];
+        return ['Freshbitsweb\LaravelCartManager\CartManagerServiceProvider'];
     }
 
-    public function getEnvironmentSetUp($app)
+    /**
+     * Define environment setup.
+     *
+     * @param \Illuminate\Foundation\Application $app
+     * @return void
+     */
+    protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('database.default', 'sqlite');
         $app['config']->set('database.connections.sqlite', [
@@ -55,42 +52,16 @@ class TestCase extends Orchestra
     }
 
     /**
-     * Set up the database.
+     * Adds an item to the cart.
      *
-     * @param \Illuminate\Foundation\Application $app
+     * @param int Quantity of the item
+     * @param array Attributes to override
+     * @return array Cart data
      */
-    protected function setUpDatabase($app)
+    protected function addACartItem($quantity = 1, $attributes = [])
     {
-        include_once __DIR__ . '/../database/migrations/create_laravel-cart_table.php.stub';
-        $app['db']->connection()->getSchemaBuilder()->create('test_products', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->integer('quantity');
-            $table->decimal('price');
-            $table->json('options');
-            $table->timestamps();
-        });
+        $testProduct = factory(TestProduct::class)->create($attributes);
 
-        $app['db']->connection()->getSchemaBuilder()->create('test_users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->timestamps();
-        });
-
-        (new \CreateLaravelCartTable())->up();
-
-        Artisan::call('migrate');
-        TestUser::create([
-            'name' => 'test_user',
-            'email' => 'user@test.com',
-        ]);
-
-        TestProduct::create([
-            'name' => '1test',
-            'price' => 100,
-            'quantity' => 10,
-            'options' => [],
-        ]);
+        return TestProduct::addToCart($testProduct->id, $quantity);
     }
 }
