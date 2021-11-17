@@ -15,7 +15,9 @@ use NumberFormatter;
 
 class Cart implements Arrayable
 {
-    use Discountable, CartTotals, CartItemsManager;
+    use Discountable;
+    use CartTotals;
+    use CartItemsManager;
 
     protected $id = null;
 
@@ -232,7 +234,7 @@ class Cart implements Arrayable
     {
         $this->cartDriver->clearData();
 
-        event(new CartCleared);
+        event(new CartCleared());
     }
 
     /**

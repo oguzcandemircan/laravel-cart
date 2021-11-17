@@ -72,19 +72,23 @@ trait CartTotals
             case 0.05:
                 // https://stackoverflow.com/a/1592379/3113599
                 $this->payable = round($this->total * 2, 1) / 2;
+
                 break;
 
             case 0.1:
                 $this->payable = round($this->total, 1);
+
                 break;
 
             case 0.5:
                 // http://www.kavoir.com/2012/10/php-round-to-the-nearest-0-5-1-0-1-5-2-0-2-5-etc.html
                 $this->payable = round($this->total * 2) / 2;
+
                 break;
 
             case 1:
                 $this->payable = round($this->total);
+
                 break;
 
             default:
