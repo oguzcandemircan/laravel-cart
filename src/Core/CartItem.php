@@ -2,9 +2,9 @@
 
 namespace OguzcanDemircan\LaravelCart\Core;
 
+use Illuminate\Contracts\Support\Arrayable;
 use OguzcanDemircan\LaravelCart\Exceptions\ItemNameMissing;
 use OguzcanDemircan\LaravelCart\Exceptions\ItemPriceMissing;
-use Illuminate\Contracts\Support\Arrayable;
 
 class CartItem implements Arrayable
 {

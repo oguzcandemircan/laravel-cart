@@ -2,8 +2,8 @@
 
 namespace OguzcanDemircan\LaravelCart\Test;
 
-use OguzcanDemircan\LaravelCart\Test\Support\TestProduct;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use OguzcanDemircan\LaravelCart\Test\Support\TestProduct;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra

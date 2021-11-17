@@ -3,15 +3,15 @@
 namespace OguzcanDemircan\LaravelCart\Core;
 
 use BadMethodCallException;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Str;
+use NumberFormatter;
 use OguzcanDemircan\LaravelCart\Contracts\CartDriver;
 use OguzcanDemircan\LaravelCart\Events\CartCleared;
 use OguzcanDemircan\LaravelCart\Events\CartCreated;
 use OguzcanDemircan\LaravelCart\Traits\CartItemsManager;
 use OguzcanDemircan\LaravelCart\Traits\CartTotals;
 use OguzcanDemircan\LaravelCart\Traits\Discountable;
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Support\Str;
-use NumberFormatter;
 
 class Cart implements Arrayable
 {

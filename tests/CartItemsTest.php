@@ -2,9 +2,9 @@
 
 namespace OguzcanDemircan\LaravelCart\Test;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use OguzcanDemircan\LaravelCart\Exceptions\ItemMissing;
 use OguzcanDemircan\LaravelCart\Test\Support\TestProduct;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class CartItemsTest extends TestCase
 {
