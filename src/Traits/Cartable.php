@@ -1,8 +1,8 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager\Traits;
+namespace OguzcanDemircan\LaravelCart\Traits;
 
-use Freshbitsweb\LaravelCartManager\Core\Cart;
+use OguzcanDemircan\LaravelCart\Core\Cart;
 
 trait Cartable
 {

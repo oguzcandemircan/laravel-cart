@@ -1,11 +1,11 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager\Traits;
+namespace OguzcanDemircan\LaravelCart\Traits;
 
-use Freshbitsweb\LaravelCartManager\Core\CartItem;
-use Freshbitsweb\LaravelCartManager\Events\CartItemAdded;
-use Freshbitsweb\LaravelCartManager\Events\CartItemRemoved;
-use Freshbitsweb\LaravelCartManager\Exceptions\ItemMissing;
+use OguzcanDemircan\LaravelCart\Core\CartItem;
+use OguzcanDemircan\LaravelCart\Events\CartItemAdded;
+use OguzcanDemircan\LaravelCart\Events\CartItemRemoved;
+use OguzcanDemircan\LaravelCart\Exceptions\ItemMissing;
 
 trait CartItemsManager
 {

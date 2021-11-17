@@ -1,13 +1,13 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager\Test;
+namespace OguzcanDemircan\LaravelCart\Test;
 
-use Freshbitsweb\LaravelCartManager\Events\CartCleared;
-use Freshbitsweb\LaravelCartManager\Events\CartCreated;
-use Freshbitsweb\LaravelCartManager\Events\CartItemAdded;
-use Freshbitsweb\LaravelCartManager\Events\CartItemRemoved;
-use Freshbitsweb\LaravelCartManager\Events\DiscountApplied;
-use Freshbitsweb\LaravelCartManager\Test\Support\TestProduct;
+use OguzcanDemircan\LaravelCart\Events\CartCleared;
+use OguzcanDemircan\LaravelCart\Events\CartCreated;
+use OguzcanDemircan\LaravelCart\Events\CartItemAdded;
+use OguzcanDemircan\LaravelCart\Events\CartItemRemoved;
+use OguzcanDemircan\LaravelCart\Events\DiscountApplied;
+use OguzcanDemircan\LaravelCart\Test\Support\TestProduct;
 use Illuminate\Support\Facades\Event;
 
 class CartEventsTest extends TestCase

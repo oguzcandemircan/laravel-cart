@@ -1,6 +1,6 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager\Models;
+namespace OguzcanDemircan\LaravelCart\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

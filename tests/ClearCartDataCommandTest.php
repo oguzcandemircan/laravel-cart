@@ -1,9 +1,9 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager\Test;
+namespace OguzcanDemircan\LaravelCart\Test;
 
 use Carbon\Carbon;
-use Freshbitsweb\LaravelCartManager\Models\Cart;
+use OguzcanDemircan\LaravelCart\Models\Cart;
 
 class ClearCartDataCommandTest extends TestCase
 {

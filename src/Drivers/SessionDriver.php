@@ -1,8 +1,8 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager\Drivers;
+namespace OguzcanDemircan\LaravelCart\Drivers;
 
-use Freshbitsweb\LaravelCartManager\Contracts\CartDriver;
+use OguzcanDemircan\LaravelCart\Contracts\CartDriver;
 
 class SessionDriver implements CartDriver
 {

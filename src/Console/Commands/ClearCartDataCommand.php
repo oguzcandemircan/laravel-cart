@@ -1,10 +1,10 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager\Console\Commands;
+namespace OguzcanDemircan\LaravelCart\Console\Commands;
 
 use Carbon\Carbon;
-use Freshbitsweb\LaravelCartManager\Models\Cart;
-use Freshbitsweb\LaravelCartManager\Models\CartItem;
+use OguzcanDemircan\LaravelCart\Models\Cart;
+use OguzcanDemircan\LaravelCart\Models\CartItem;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Schema;
 

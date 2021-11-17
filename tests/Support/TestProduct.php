@@ -1,8 +1,8 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager\Test\Support;
+namespace OguzcanDemircan\LaravelCart\Test\Support;
 
-use Freshbitsweb\LaravelCartManager\Traits\Cartable;
+use OguzcanDemircan\LaravelCart\Traits\Cartable;
 use Illuminate\Database\Eloquent\Model;
 
 class TestProduct extends Model

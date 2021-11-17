@@ -1,8 +1,8 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager\Test;
+namespace OguzcanDemircan\LaravelCart\Test;
 
-use Freshbitsweb\LaravelCartManager\Exceptions\IncorrectDiscount;
+use OguzcanDemircan\LaravelCart\Exceptions\IncorrectDiscount;
 
 class CartDiscountTest extends TestCase
 {

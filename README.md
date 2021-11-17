@@ -52,7 +52,7 @@ php artisan migrate
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Freshbitsweb\LaravelCartManager\Traits\Cartable;
+use OguzcanDemircan\LaravelCart\Traits\Cartable;
 
 class Product extends Model
 {
@@ -342,7 +342,7 @@ This package fires various cart related events which you can listen to for any a
 Add the event and listener entry in the `EventServiceProvider` class
 ```
 protected $listen = [
-	'Freshbitsweb\LaravelCartManager\Events\CartCreated' => [
+	'OguzcanDemircan\LaravelCart\Events\CartCreated' => [
 		'App\Listeners\LogCartCreated',
 	],
 ];
@@ -355,7 +355,7 @@ Create respective listener:
 namespace App\Listeners;
 
 use Illuminate\Support\Facades\Log;
-use Freshbitsweb\LaravelCartManager\Events\CartCreated;
+use OguzcanDemircan\LaravelCart\Events\CartCreated;
 
 class LogCartCreated
 {

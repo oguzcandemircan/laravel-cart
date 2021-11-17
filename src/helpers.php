@@ -1,6 +1,6 @@
 <?php
 
-use Freshbitsweb\LaravelCartManager\Core\Cart;
+use OguzcanDemircan\LaravelCart\Core\Cart;
 
 if (! function_exists('cart')) {
     /**

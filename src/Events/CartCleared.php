@@ -1,6 +1,6 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager\Events;
+namespace OguzcanDemircan\LaravelCart\Events;
 
 class CartCleared
 {

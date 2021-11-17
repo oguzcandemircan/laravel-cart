@@ -1,6 +1,6 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager\Contracts;
+namespace OguzcanDemircan\LaravelCart\Contracts;
 
 interface CartDriver
 {

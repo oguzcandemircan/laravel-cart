@@ -1,8 +1,8 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager\Test;
+namespace OguzcanDemircan\LaravelCart\Test;
 
-use Freshbitsweb\LaravelCartManager\Test\Support\TestProduct;
+use OguzcanDemircan\LaravelCart\Test\Support\TestProduct;
 
 class CartTest extends TestCase
 {

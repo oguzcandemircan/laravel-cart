@@ -1,15 +1,15 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager\Observers;
+namespace OguzcanDemircan\LaravelCart\Observers;
 
-use Freshbitsweb\LaravelCartManager\Models\Cart;
+use OguzcanDemircan\LaravelCart\Models\Cart;
 
 class CartObserver
 {
     /**
      * Listen to the Cart deleting event.
      *
-     * @param \Freshbitsweb\LaravelCartManager\Models\Cart $cart
+     * @param \OguzcanDemircan\LaravelCart\Models\Cart $cart
      * @return void
      */
     public function deleting(Cart $cart)

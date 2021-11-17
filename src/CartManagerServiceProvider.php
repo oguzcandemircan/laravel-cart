@@ -1,12 +1,12 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager;
+namespace OguzcanDemircan\LaravelCart;
 
-use Freshbitsweb\LaravelCartManager\Console\Commands\ClearCartDataCommand;
-use Freshbitsweb\LaravelCartManager\Contracts\CartDriver;
-use Freshbitsweb\LaravelCartManager\Core\Cart;
-use Freshbitsweb\LaravelCartManager\Models\Cart as CartModel;
-use Freshbitsweb\LaravelCartManager\Observers\CartObserver;
+use OguzcanDemircan\LaravelCart\Console\Commands\ClearCartDataCommand;
+use OguzcanDemircan\LaravelCart\Contracts\CartDriver;
+use OguzcanDemircan\LaravelCart\Core\Cart;
+use OguzcanDemircan\LaravelCart\Models\Cart as CartModel;
+use OguzcanDemircan\LaravelCart\Observers\CartObserver;
 use Illuminate\Support\ServiceProvider;
 
 class CartManagerServiceProvider extends ServiceProvider

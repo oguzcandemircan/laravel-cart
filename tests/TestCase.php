@@ -1,8 +1,8 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager\Test;
+namespace OguzcanDemircan\LaravelCart\Test;
 
-use Freshbitsweb\LaravelCartManager\Test\Support\TestProduct;
+use OguzcanDemircan\LaravelCart\Test\Support\TestProduct;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -32,7 +32,7 @@ abstract class TestCase extends Orchestra
      */
     protected function getPackageProviders($app)
     {
-        return ['Freshbitsweb\LaravelCartManager\CartManagerServiceProvider'];
+        return ['OguzcanDemircan\LaravelCart\CartManagerServiceProvider'];
     }
 
     /**

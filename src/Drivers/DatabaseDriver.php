@@ -1,10 +1,10 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager\Drivers;
+namespace OguzcanDemircan\LaravelCart\Drivers;
 
-use Freshbitsweb\LaravelCartManager\Contracts\CartDriver;
-use Freshbitsweb\LaravelCartManager\Models\Cart;
-use Freshbitsweb\LaravelCartManager\Models\CartItem;
+use OguzcanDemircan\LaravelCart\Contracts\CartDriver;
+use OguzcanDemircan\LaravelCart\Models\Cart;
+use OguzcanDemircan\LaravelCart\Models\CartItem;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Str;

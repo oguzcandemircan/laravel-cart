@@ -1,6 +1,6 @@
 <?php
 
-namespace Freshbitsweb\LaravelCartManager\Exceptions;
+namespace OguzcanDemircan\LaravelCart\Exceptions;
 
 use InvalidArgumentException;
 
