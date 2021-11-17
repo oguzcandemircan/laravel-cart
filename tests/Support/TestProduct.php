@@ -2,8 +2,8 @@
 
 namespace OguzcanDemircan\LaravelCart\Test\Support;
 
-use OguzcanDemircan\LaravelCart\Traits\Cartable;
 use Illuminate\Database\Eloquent\Model;
+use OguzcanDemircan\LaravelCart\Traits\Cartable;
 
 class TestProduct extends Model
 {

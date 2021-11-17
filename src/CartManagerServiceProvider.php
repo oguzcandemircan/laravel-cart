@@ -2,12 +2,12 @@
 
 namespace OguzcanDemircan\LaravelCart;
 
+use Illuminate\Support\ServiceProvider;
 use OguzcanDemircan\LaravelCart\Console\Commands\ClearCartDataCommand;
 use OguzcanDemircan\LaravelCart\Contracts\CartDriver;
 use OguzcanDemircan\LaravelCart\Core\Cart;
 use OguzcanDemircan\LaravelCart\Models\Cart as CartModel;
 use OguzcanDemircan\LaravelCart\Observers\CartObserver;
-use Illuminate\Support\ServiceProvider;
 
 class CartManagerServiceProvider extends ServiceProvider
 {

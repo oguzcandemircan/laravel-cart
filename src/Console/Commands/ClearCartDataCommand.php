@@ -3,10 +3,10 @@
 namespace OguzcanDemircan\LaravelCart\Console\Commands;
 
 use Carbon\Carbon;
-use OguzcanDemircan\LaravelCart\Models\Cart;
-use OguzcanDemircan\LaravelCart\Models\CartItem;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Schema;
+use OguzcanDemircan\LaravelCart\Models\Cart;
+use OguzcanDemircan\LaravelCart\Models\CartItem;
 
 class ClearCartDataCommand extends Command
 {

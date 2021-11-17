@@ -2,12 +2,12 @@
 
 namespace OguzcanDemircan\LaravelCart\Drivers;
 
-use OguzcanDemircan\LaravelCart\Contracts\CartDriver;
-use OguzcanDemircan\LaravelCart\Models\Cart;
-use OguzcanDemircan\LaravelCart\Models\CartItem;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Str;
+use OguzcanDemircan\LaravelCart\Contracts\CartDriver;
+use OguzcanDemircan\LaravelCart\Models\Cart;
+use OguzcanDemircan\LaravelCart\Models\CartItem;
 
 class DatabaseDriver implements CartDriver
 {
