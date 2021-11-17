@@ -42,7 +42,8 @@ class CartManagerServiceProvider extends ServiceProvider
     {
         // Users can specify only the options they actually want to override
         $this->mergeConfigFrom(
-            __DIR__.'/../config/cart_manager.php', 'cart_manager'
+            __DIR__.'/../config/cart_manager.php',
+            'cart_manager'
         );
 
         // Bind the driver with contract
