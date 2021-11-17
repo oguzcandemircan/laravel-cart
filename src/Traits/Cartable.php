@@ -13,10 +13,10 @@ trait Cartable
      * @param int quantity
      * @return
      */
-    public static function addToCart($id, $quantity = 1)
+    public static function addToCart(int $id, int $quantity = 1, string $note = null)
     {
         $class = static::class;
 
-        return app(Cart::class)->add($class::findOrFail($id), $quantity);
+        return app(Cart::class)->add($class::findOrFail($id), $quantity, $note);
     }
 }

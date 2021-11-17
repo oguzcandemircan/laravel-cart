@@ -16,7 +16,7 @@ trait CartItemsManager
      * @param int Quantity
      * @return array
      */
-    public function add($entity, $quantity)
+    public function add($entity, $quantity, $note = null)
     {
         if ($this->itemExists($entity)) {
             $cartItemIndex = $this->items->search($this->cartItemsCheck($entity));

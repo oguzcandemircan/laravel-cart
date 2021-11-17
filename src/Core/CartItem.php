@@ -22,6 +22,8 @@ class CartItem implements Arrayable
 
     public $quantity = 1;
 
+    public $note = null;
+
     /**
      * Creates a new cart item.
      *
@@ -53,6 +55,7 @@ class CartItem implements Arrayable
         $this->setPrice($entity);
         $this->setImage($entity);
         $this->quantity = $quantity;
+        $this->note = $entity->note;
 
         return $this;
     }
@@ -72,6 +75,7 @@ class CartItem implements Arrayable
         $this->price = $array['price'];
         $this->image = $array['image'];
         $this->quantity = $array['quantity'];
+        $this->note = $array['note'];
 
         return $this;
     }
@@ -169,6 +173,7 @@ class CartItem implements Arrayable
             'price' => $this->price,
             'image' => $this->image,
             'quantity' => $this->quantity,
+            'note' => $this->note,
         ];
 
         if ($this->id) {
