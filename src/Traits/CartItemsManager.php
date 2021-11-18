@@ -20,9 +20,9 @@ trait CartItemsManager
     {
         if ($this->itemExists($entity)) {
             $cartItemIndex = $this->items->search($this->cartItemsCheck($entity));
-            
+
             $this->updateNote($cartItemIndex, $note);
-            
+
             return $this->incrementQuantityAt($cartItemIndex, $quantity);
         }
 
@@ -166,8 +166,7 @@ trait CartItemsManager
     {
         $this->existenceCheckFor($cartItemIndex);
 
-        if($this->items[$cartItemIndex]->note != $note and $note != null) {
-
+        if ($this->items[$cartItemIndex]->note != $note and $note != null) {
             $this->items[$cartItemIndex]->note = $note;
 
             $this->cartDriver->setCartItemNote(
