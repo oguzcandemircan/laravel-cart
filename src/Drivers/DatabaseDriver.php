@@ -202,6 +202,11 @@ class DatabaseDriver implements CartDriver
         CartItem::where('id', $cartItemId)->update(['quantity' => $newQuantity]);
     }
 
+    public function setCartItemNote($cartItemId, $note)
+    {
+        CartItem::where('id', $cartItemId)->update(['note' => $note]);
+    }
+
     /**
      * Clears the cart details including cart items from the database.
      *

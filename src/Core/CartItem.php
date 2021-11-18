@@ -31,13 +31,13 @@ class CartItem implements Arrayable
      * @param int Quantity of the item
      * @return \OguzcanDemircan\LaravelCart\Core\CartItem
      */
-    public function __construct($data, $quantity)
+    public function __construct($data, int $quantity, $note = null)
     {
         if (is_array($data)) {
             return $this->createFromArray($data);
         }
 
-        return $this->createFromModel($data, $quantity);
+        return $this->createFromModel($data, $quantity, $note);
     }
 
     /**
@@ -47,7 +47,7 @@ class CartItem implements Arrayable
      * @param int Quantity of the item
      * @return \OguzcanDemircan\LaravelCart\Core\CartItem
      */
-    protected function createFromModel($entity, $quantity)
+    protected function createFromModel($entity, $quantity, $note = null)
     {
         $this->modelType = get_class($entity);
         $this->modelId = $entity->{$entity->getKeyName()};
@@ -55,7 +55,7 @@ class CartItem implements Arrayable
         $this->setPrice($entity);
         $this->setImage($entity);
         $this->quantity = $quantity;
-        $this->note = $entity->note;
+        $this->note = $note;
 
         return $this;
     }
@@ -87,9 +87,9 @@ class CartItem implements Arrayable
      * @param int Quantity of the item
      * @return \OguzcanDemircan\LaravelCart\Core\CartItem
      */
-    public static function createFrom($data, $quantity = 1)
+    public static function createFrom($data, $quantity = 1, $note = null)
     {
-        return new static($data, $quantity);
+        return new static($data, $quantity, $note);
     }
 
     /**

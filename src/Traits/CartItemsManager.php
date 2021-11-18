@@ -20,11 +20,13 @@ trait CartItemsManager
     {
         if ($this->itemExists($entity)) {
             $cartItemIndex = $this->items->search($this->cartItemsCheck($entity));
-
+            
+            $this->updateNote($cartItemIndex, $note);
+            
             return $this->incrementQuantityAt($cartItemIndex, $quantity);
         }
 
-        $this->items->push(CartItem::createFrom($entity, $quantity));
+        $this->items->push(CartItem::createFrom($entity, $quantity, $note));
 
         event(new CartItemAdded($entity));
 
@@ -156,6 +158,23 @@ trait CartItemsManager
             $this->items[$cartItemIndex]->id,
             $this->items[$cartItemIndex]->quantity
         );
+
+        return $this->cartUpdates();
+    }
+
+    public function updateNote($cartItemIndex,  $note = null)
+    {
+        $this->existenceCheckFor($cartItemIndex);
+
+        if($this->items[$cartItemIndex]->note != $note and $note != null) {
+
+            $this->items[$cartItemIndex]->note = $note;
+
+            $this->cartDriver->setCartItemNote(
+                $this->items[$cartItemIndex]->id,
+                $this->items[$cartItemIndex]->note
+            );
+        }
 
         return $this->cartUpdates();
     }

@@ -108,6 +108,21 @@ class SessionDriver implements CartDriver
         session([$this->itemsKey => $items]);
     }
 
+    public function setCartItemNote($cartItemId, $note)
+    {
+        $items = collect(session($this->itemsKey));
+
+        $items = $items->map(function ($item) use ($cartItemId, $newQuantity) {
+            if ($item['id'] == $cartItemId) {
+                $item['note'] = $note;
+            }
+
+            return $item;
+        });
+
+        session([$this->itemsKey => $items]);
+    }
+
     /**
      * Updates the details of all the cart items.
      *
