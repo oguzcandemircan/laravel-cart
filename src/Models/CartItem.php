@@ -12,7 +12,7 @@ class CartItem extends Model
      * @var array
      */
     protected $fillable = [
-        'cart_id', 'model_type', 'model_id', 'name', 'price', 'image', 'quantity', 'note', 'sender_name', 'recipient_name'
+        'cart_id', 'model_type', 'model_id', 'name', 'price', 'image', 'quantity', 'note', 'sender_name', 'recipient_name',
     ];
 
     /**
