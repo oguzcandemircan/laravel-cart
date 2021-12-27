@@ -22,6 +22,7 @@ trait CartItemsManager
             $cartItemIndex = $this->items->search($this->cartItemsCheck($entity));
 
             $this->updateNote($cartItemIndex, $note);
+            $this->updateSenderAndRecipient($cartItemIndex, $entity->sender_name, $entity->recipient_name);
 
             return $this->incrementQuantityAt($cartItemIndex, $quantity);
         }
@@ -178,6 +179,30 @@ trait CartItemsManager
         return $this->cartUpdates();
     }
 
+    public function updateSenderAndRecipient($cartItemIndex, $sender, $recipient)
+    {
+        $this->existenceCheckFor($cartItemIndex);
+        // dd($this->items[$cartItemIndex]);
+        if ($this->items[$cartItemIndex]->sender_name != $sender and $sender != null) {
+            $this->items[$cartItemIndex]->sender_name = $sender;
+
+            $this->cartDriver->setCartItemSender(
+                $this->items[$cartItemIndex]->id,
+                $this->items[$cartItemIndex]->sender_name
+            );
+        }
+
+        if ($this->items[$cartItemIndex]->recipient_name != $recipient and $recipient != null) {
+            $this->items[$cartItemIndex]->recipient_name = $recipient;
+            $this->cartDriver->setCartItemRecipient(
+                $this->items[$cartItemIndex]->id,
+                $this->items[$cartItemIndex]->recipient_name
+            );
+        }
+
+        return $this->cartUpdates();
+    }
+
     /**
      * Refreshes all items data.
      *
@@ -190,7 +215,7 @@ trait CartItemsManager
         $this->items->transform(function ($item) use (&$keepDiscount) {
             $freshEntity = $item->modelType::findOrFail($item->modelId);
 
-            $cartItem = CartItem::createFrom($freshEntity, $item->quantity);
+            $cartItem = CartItem::createFrom($freshEntity, $item->quantity, $item->note);
 
             if ($cartItem->price != $item->price) {
                 $keepDiscount = false;

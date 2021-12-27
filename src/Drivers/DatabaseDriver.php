@@ -207,6 +207,21 @@ class DatabaseDriver implements CartDriver
         CartItem::where('id', $cartItemId)->update(['note' => $note]);
     }
 
+    
+    public function setCartItemSender($cartItemId, $sender)
+    {
+        CartItem::where('id', $cartItemId)->update([
+            'sender_name' => $sender,
+        ]);
+    }
+
+    public function setCartItemRecipient($cartItemId, $recipient)
+    {
+        CartItem::where('id', $cartItemId)->update([
+            'recipient_name' => $recipient
+        ]);
+    }
+
     /**
      * Clears the cart details including cart items from the database.
      *
