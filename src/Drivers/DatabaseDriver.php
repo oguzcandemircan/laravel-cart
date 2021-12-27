@@ -207,7 +207,6 @@ class DatabaseDriver implements CartDriver
         CartItem::where('id', $cartItemId)->update(['note' => $note]);
     }
 
-    
     public function setCartItemSender($cartItemId, $sender)
     {
         CartItem::where('id', $cartItemId)->update([
@@ -218,7 +217,7 @@ class DatabaseDriver implements CartDriver
     public function setCartItemRecipient($cartItemId, $recipient)
     {
         CartItem::where('id', $cartItemId)->update([
-            'recipient_name' => $recipient
+            'recipient_name' => $recipient,
         ]);
     }
 
