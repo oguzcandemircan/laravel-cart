@@ -82,8 +82,8 @@ class CartItem implements Arrayable
         $this->image = $array['image'];
         $this->quantity = $array['quantity'];
         $this->note = $array['note'];
-        $this->sender_name = $array['sender_name'] ?? '';
-        $this->recipient_name = $array['recipient_name'] ?? '';
+        $this->sender_name = $array['sender_name'];
+        $this->recipient_name = $array['recipient_name'];
 
         return $this;
     }

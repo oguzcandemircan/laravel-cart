@@ -53,7 +53,9 @@ class DatabaseDriver implements CartDriver
     {
         return [
             'items' => function ($query) {
-                $query->select('id', 'cart_id', 'model_type', 'model_id', 'name', 'price', 'image', 'quantity', 'note')
+                $query->select(
+                    'id', 'cart_id', 'model_type', 'model_id', 'name', 'price', 'image', 'quantity', 'note', 'sender_name', 'recipient_name'
+                    )
                     ->orderBy('id', 'asc')
                 ;
             },

@@ -12,7 +12,7 @@ class CartItem extends Model
      * @var array
      */
     protected $fillable = [
-        'cart_id', 'model_type', 'model_id', 'name', 'price', 'image', 'quantity', 'note',
+        'cart_id', 'model_type', 'model_id', 'name', 'price', 'image', 'quantity', 'note', 'sender_name', 'recipient_name'
     ];
 
     /**
@@ -31,6 +31,8 @@ class CartItem extends Model
             'image' => $this->image,
             'quantity' => $this->quantity,
             'note' => $this->note,
+            'sender_name' => $this->sender_name,
+            'recipient_name' => $this->recipient_name,
         ];
     }
 }
